@@ -1,0 +1,32 @@
+https://www.codechef.com/problems/FLOW016
+
+SOLVE:-
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int T,x,y,a,b,c,t;
+	cin>>T;
+	while(T != 0)
+	{
+		T--;
+		x=0;
+		y=0;
+		a=0;
+		b=0;
+		c=0;
+		cin>>a>>b;
+		x=a;
+		y=b;
+		while(b != 0)
+		{
+			t=b;
+			b=a%b;
+			a=t;
+		}
+		c=(x*y)/a;
+		cout<<a<<" "<<c<<"\n";
+		}
+	return 0;
+}
