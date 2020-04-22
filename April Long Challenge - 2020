@@ -1,0 +1,47 @@
+Question:- Leaked Answers (Challenge) // Problem Code: ANSLEAK
+Link:- https://www.codechef.com/APRIL20B/problems/ANSLEAK
+
+SOLVE:-
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
+int mostFrequent(int arr[], int n) 
+{ 
+  
+    unordered_map<int, int> hash; 
+    for (int i = 0; i < n; i++) 
+        hash[arr[i]]++; 
+
+    int max_count = 0, res = -1; 
+    for (auto i : hash) { 
+        if (max_count < i.second) { 
+            res = i.first; 
+            max_count = i.second; 
+        } 
+    } 
+  
+    return res; 
+}
+int main()
+{
+    int test;
+    cin>>test;
+    for(int i=0;i<test;++i){
+        int n,m,k;
+        cin>>n>>m>>k;
+        vector<int> res;
+        for(int j=0;j<n;++j){
+            int answers[k];
+            for(int l=0;l<k;++l){
+                cin>>answers[l];
+            }
+            int fin=mostFrequent(answers,k);
+            res.push_back(fin);
+        }
+        for(int i:res){
+            cout<<i<<" ";
+        }
+        cout<<" \n";
+    }
+}
