@@ -1,0 +1,23 @@
+Chef and Three Dogs Problem Code: CHDOGS
+Link:- https://www.codechef.com/OCT16/problems/CHDOGS
+
+Solve:-
+#include <iostream>
+#include<stdio.h>
+using namespace std;
+
+int main() 
+{
+int T; long double v,s;
+long double tt;
+cin>>T;
+while(T!=0)
+{
+v=0.0;s=0.0;tt=0.0;
+cin>>s>>v;
+tt=(2.0*s)/(3.0*v);
+printf("%0.6Lf\n",tt);
+T--;
+}
+return 0;
+}
