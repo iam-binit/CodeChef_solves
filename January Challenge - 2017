@@ -1,0 +1,34 @@
+Question - https://www.codechef.com/JAN17/problems/CATSDOGS
+
+Solution:-
+
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int T,C,D,L,k,i;
+	int p,cc,lcc;
+	cin>>T;
+	while(T!=0)
+	{
+		T--;C=0;D=0;k=0;p=0;cc=0;lcc=0;
+		cin>>C>>D>>L;
+		p=C*4+D*4;
+		cc=D*2;
+		lcc=(cc>C)?0:(C-cc)*4;
+		for(i=D*4+lcc;i<=p;i=i+4)
+		{
+			if(i==L)
+			{
+			k=1;
+			break;
+			}
+		}
+		if(k==1)
+		cout<<"yes"<<endl;
+		else
+		cout<<"no"<<endl;
+	}
+	return 0;
+}
