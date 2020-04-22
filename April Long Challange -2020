@@ -1,0 +1,52 @@
+Problem:- https://www.codechef.com/APRIL20B/problems/COVIDLQ
+Solution:-
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int N[100],T,ar[100][100],a,r1=0;
+	cin>>T;
+	while(T!=0)
+	{
+		T--;
+		cin>>N[r1];
+		for(a=0;a<N[r1];a++)
+		{
+			cin>>ar[r1][a];
+		}
+		r1++;
+	}
+	int b,d,k,c1[100],c2,r;
+	for(b=0;b<r1;b++)
+	{
+		
+		c2=0;r=1;
+		for(d=0;d<N[b];d++)
+		{
+			
+			if(ar[b][d]==1)
+			{
+				c1[c2]=d;
+				c2++;
+			}
+			
+		}
+		for(k=0;k<c2-1;k++)
+		{
+			if((c1[k+1]-c1[k])>=6)
+			continue;
+			else
+			{
+				r=0;
+				break;
+			}
+		}
+		if(r==0)
+		cout<<"NO"<<endl;
+		else
+		cout<<"YES"<<endl;
+	}
+	
+	return 0;
+}
