@@ -1,0 +1,30 @@
+
+Question:- https://www.codechef.com/LOCMAY17/problems/BONDFOND
+
+Solution:-
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main() 
+{
+int T,N,p=0,q;
+cin>>T;
+while(T>0)
+{
+	T--;
+	cin>>N;
+	q=0;
+	do
+	{
+		p=pow(2,q);
+		q++;
+	}
+	while(p<N);
+	if(p==N)
+	cout<<N-p<<endl;
+	else
+		cout<<min((p-N),(N-(p/2)))<<endl;
+}
+	return 0;
+}
