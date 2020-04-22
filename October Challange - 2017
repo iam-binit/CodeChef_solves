@@ -1,0 +1,33 @@
+https://www.codechef.com/OCT17/problems/PERFCONT
+
+A Balanced Contest Problem Code: PERFCONT
+
+Solution:-
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+	int T,P,N;
+	int h,cw,r,s;
+	int ar[1000];
+	cin>>T;
+	while(T!=0)
+	{
+			T--;h=0;cw=0;r=0;s=0;P=0;N=0;
+			cin>>N>>P;
+			r=P/10;s=P/2;
+			for(int i=0;i<N;i++)
+			{
+				cin>>ar[i];
+				if(ar[i]<=r)
+				h++;
+				if(ar[i]>=s)
+				cw++;
+			}
+			if(cw==1 && h==2)
+			cout<<"yes"<<endl;
+			else
+			cout<<"no"<<endl;
+	}
+}
