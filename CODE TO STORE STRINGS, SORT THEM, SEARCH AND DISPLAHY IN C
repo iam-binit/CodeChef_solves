@@ -1,0 +1,112 @@
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+void display (char name[10][20]);
+void sorting (char name[10][20], char tname[10][20]);
+void search (char name[10][20]);
+int
+main ()
+{
+  char name[10][20], tname[10][20];
+  int i, n = 10, ch1, ch = 1;
+  printf ("Enter %d names n \n", n);
+
+  for (i = 0; i < n; i++)
+    {
+      scanf ("%s", name[i]);
+      strcpy (tname[i], name[i]);
+    }
+  while (ch == 1)
+    {
+      printf
+	("Enter your choice \n 1 to Print the Names \n 2 to Sort Names in Ascending order \n 3 to Print again after sorting \n 4 to Search an element in the array \n");
+      scanf ("%d", &ch1);
+      if (ch1 == 1)
+	{
+	  display (name);
+	}
+      else if (ch1 == 2)
+	{
+	  sorting (name, tname);
+	}
+      else if (ch1 == 3)
+	{
+	  display (name);
+	}
+      else if (ch1 == 4)
+	{
+	  search (name);
+	}
+      else
+	{
+	  printf ("Invalid Input!!!\n");
+	}
+      printf ("\nPress 1 to continue 0 to stop\n ----------->>>>>>>>>");
+      scanf ("%d", &ch);
+    }
+  return 0;
+}
+
+void
+display (char name[10][20])	//function to display array
+{
+  int i;
+  printf ("\nElement Present in Array are:\n");
+  printf ("------------------------------------\n");
+  for (i = 0; i < 10; i++)
+    {
+      printf ("\t%s\n", name[i]);
+    }
+}
+
+void
+sorting (char name[10][20], char tname[10][20])	// function for sorting
+{
+  int n = 10, i, j;
+  char temp[10];
+  for (i = 0; i < n - 1; i++)
+    {
+      for (j = i + 1; j < n; j++)
+	{
+	  if (strcmp (name[i], name[j]) > 0)
+	    {
+	      strcpy (temp, name[i]);
+	      strcpy (name[i], name[j]);
+	      strcpy (name[j], temp);
+	    }
+	}
+    }
+  printf ("\n----------------------------------------\n");
+  printf ("Input Names \t Sorted names\n");
+  printf ("------------------------------------------\n");
+  for (i = 0; i < n; i++)
+    {
+      printf ("%s \t\t %s\n", tname[i], name[i]);
+    }
+  printf ("------------------------------------------\n");
+}
+
+void
+search (char name[10][20])
+{
+  char search[20];
+  int n = 10, c = 0, i, j;
+  printf ("\nEnter Name to be Searched: ");
+  scanf ("%s", search);
+  for (i = 0; i < n; i++)
+    {
+      if (strcmp (name[i], search) == 0)
+	{
+	  c = 1;
+	  break;
+	}
+    }
+  if (c == 1)
+    printf ("\n%s  Found at Position '%d'", name[i], i + 1);
+  else
+    printf ("\n%s NOT Present in Above Array", name[i]);
+  return 0;
+}
